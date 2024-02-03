@@ -1,0 +1,6 @@
+.city::-webkit-scrollbar{
+    display: none;
+}
+.city{
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,18 @@
+export const topCities = [
+    { name: 'Mumbai', country: 'India' },
+    { name: 'Delhi', country: 'India' },
+    { name: 'Bangalore', country: 'India' },
+    { name: 'Hyderabad', country: 'India' },
+    { name: 'Chennai', country: 'India' },
+    { name: 'Kolkata', country: 'India' },
+    { name: 'Ahmedabad', country: 'India' },
+    { name: 'Pune', country: 'India' },
+    { name: 'India', country: 'India' },
+    { name: 'Jaipur', country: 'India' },
+    { name: 'Surat', country: 'India' },
+    { name: 'New York', country: 'United States' },
+    { name: 'Tokyo', country: 'Japan' },
+    { name: 'London', country: 'United Kingdom' },
+    { name: 'Paris', country: 'France' },
+    { name: 'Sydney', country: 'Australia' },
+  ];
