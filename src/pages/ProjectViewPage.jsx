@@ -148,13 +148,13 @@ function ProjectViewPage() {
                                 className="carousel w-full rounded-md"
                             >
                                 <SwiperSlide id="slide1" className="carousel-item relative w-full rounded-md">
-                                    <img src={data?.gallery[0]?.secure_url || sliderImg1} className="w-full object-cover sm:h-[350px] h-[200px] md:h-[400px] lg:h-[500px] rounded" />
+                                    <img src={data?.gallery[0]?.secure_url} className="w-full object-cover sm:h-[350px] h-[200px] md:h-[400px] lg:h-[500px] rounded" />
                                 </SwiperSlide>
                                 <SwiperSlide id="slide2" className="carousel-item relative w-full rounded-md">
-                                    <img src={data?.gallery[1]?.secure_url || sliderImg2} className="w-full object-cover h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded" />
+                                    <img src={data?.gallery[1]?.secure_url} className="w-full object-cover h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded" />
                                 </SwiperSlide>
                                 <SwiperSlide id="slide3" className="carousel-item relative w-full rounded-md">
-                                    <img src={data?.gallery[2]?.secure_url || sliderImg3} className="w-full object-cover h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded" />
+                                    <img src={data?.gallery[2]?.secure_url} className="w-full object-cover h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded" />
                                 </SwiperSlide>
 
                             </Swiper>
