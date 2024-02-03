@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createContact } from "../redux/store";
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, json, useParams } from "react-router-dom";
 import { getProject, getSimilarProject } from "../redux/slices/projectSlice";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineLocationCity } from "react-icons/md";
@@ -27,7 +27,10 @@ function ProjectViewPage() {
     const similarProjectData = similarProject.filter((data) => {
         return data.checkStatus == "yes";
     })
-    const { _id } = useSelector((state) => state?.auth?.data);
+    // const { _id } = useSelector((state) => state?.auth?.data);
+    const getUserData = JSON.parse(localStorage.getItem("data"));
+    // console.log(getUserData._id);
+    // console.log(_id);
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [nextEl, setNextEl] = useState(null);
@@ -42,7 +45,7 @@ function ProjectViewPage() {
     const [ratingReview, setRatingReview] = useState({
         rating: '',
         review: '',
-        id: _id,
+        id: getUserData?._id,
     });
 
     const [hover, setHover] = useState(null);
@@ -90,12 +93,12 @@ function ProjectViewPage() {
     async function onReviewFormSubmit(e) {
         e.preventDefault();
         try {
-            const res = dispatch(createRatingReview([ratingReview, data?._id]));
+            const res = dispatch(createRatingReview([ratingReview, getUserData?._id]));
             setRatingReview((prev) => ({
                 ...prev,
                 rating: '',
                 review: '',
-                id: _id,
+                id: getUserData?._id,
             }))
 
             setHover(null);
@@ -108,10 +111,6 @@ function ProjectViewPage() {
     useEffect(() => {
         fetchSimilarProjects();
     }, [data]);
-
-    useEffect(() => {
-        const getIsModelOpen = localStorage.getItem("isModelOpen");
-    })
     const classNames = 'hover:bg-dry absolute flex items-center justify-center transitions text-sm rounded w-8 h-8 flex-colo bg-primary text-white';
     return (
         <HomeLayout
