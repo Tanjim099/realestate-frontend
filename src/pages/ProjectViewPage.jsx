@@ -17,9 +17,6 @@ import { FaStar } from "react-icons/fa";
 import { createRatingReview } from "../redux/slices/ratingReview";
 import StarRating from "../components/StarRating";
 import GetAvgRating from "../helper/avgRating";
-import sliderImg1 from "../assets/sliderImg1.webp";
-import sliderImg2 from "../assets/sliderImg2.webp";
-import sliderImg3 from "../assets/sliderImg3.webp";
 import Spinner from "../components/Spinner";
 import toast from "react-hot-toast";
 
