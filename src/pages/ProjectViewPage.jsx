@@ -27,7 +27,7 @@ function ProjectViewPage() {
     const similarProjectData = similarProject.filter((data) => {
         return data.checkStatus == "yes";
     })
-    // const { _id } = useSelector((state) => state?.auth?.data);
+    const { _id } = useSelector((state) => state?.auth?.data);
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [nextEl, setNextEl] = useState(null);
