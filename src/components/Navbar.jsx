@@ -54,7 +54,7 @@ function Navbar() {
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-[270px] min-h-full bg-base-200 text-base-content ">
                                 <div className="flex items-center justify-center border-b-2 pb-3 border-black">
-                                    <Link to="/" className=" text-3xl font-semibold">Home<span className=" text-primary">99</span></Link>
+                                    <Link to="/" className=" text-3xl font-semibold">Homes<span className=" text-primary">Zy</span></Link>
                                 </div>
                                 <li className='w-fit absolute right-0 top-3 z-50'>
                                     <button>
@@ -74,7 +74,7 @@ function Navbar() {
                             </ul>
                         </div>
                         <div className="flex gap-5 items-center">
-                            <Link to={'/'} className=" font-medium text-white p-0 text-2xl sm:text-4xl">HOME99</Link>
+                            <Link to={'/'} className=" font-medium text-white p-0 text-2xl sm:text-4xl">Homeszy</Link>
                             <div className="mt-1">
                                 <select value={cityValue} onChange={handelSubmitValue} className="bg-transparent outline-0 text-white">
                                     {topCities && (
