@@ -131,7 +131,7 @@ function AdminLayout({ children }) {
             <Sider trigger={null} collapsible collapsed={collapsed} className='overflow-y-scroll sideBar'>
 
                 <div className='demo-logo-vertical' />
-                <h2 mode='inline' className=' text-center text-sm text-white my-2'>Dashboard</h2>
+                <h2 mode='inline' className=' text-center text-2xl text-white my-2'>LOGO</h2>
                 <Menu
                     theme='dark'
                     mode='inline'
