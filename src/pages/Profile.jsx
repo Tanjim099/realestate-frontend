@@ -41,7 +41,6 @@ function Profile() {
     try {
       e.preventDefault();
       const uploadFile = e.target.files;
-      console.log(uploadFile);
       if (uploadFile) {
         const uploadImage = uploadFile[0];
         setUserInput((prev) => ({
@@ -56,7 +55,7 @@ function Profile() {
         })
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
   }
 
@@ -71,9 +70,7 @@ function Profile() {
       formData.append('phone', userInput.phone);
       formData.append('avatar', userInput.avatar);
 
-      console.log('Starting...');
       const res = await dispatch(updateProfile([formData, data?._id]));
-      console.log(res);
 
     } catch (error) {
       toast.error(error)

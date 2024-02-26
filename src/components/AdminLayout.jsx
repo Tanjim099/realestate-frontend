@@ -29,9 +29,7 @@ function AdminLayout({ children }) {
     const [collapsed, setCollapsed] = useState(false);
     const { editProject } = useSelector((state) => state.project);
     const { data, role } = useSelector((state) => state.auth);
-    console.log(role);
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
-    console.log(editProject);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -114,8 +112,6 @@ function AdminLayout({ children }) {
             link: 'add-blog',
         },
     ]
-
-    console.log(menuItems);
 
     const handelLogout = async (e) => {
         // e.preventDefault();

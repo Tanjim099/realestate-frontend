@@ -9,7 +9,6 @@ function Search() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { page } = useParams();
-    console.log(page)
     const [limit, setLimit] = useState(10);
     const { results } = useSelector((state) => state?.project);
     return (

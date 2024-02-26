@@ -16,16 +16,16 @@ function AllProjects() {
         const response = await dispatch(getAllProjectsByPage({ data: parseInt(page) || 1, data: limit }));
     }
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         const nextPage = parseInt(page) + 1;
-        dispatch(getAllProjectsByPage({ page: nextPage, limit }));
+        await dispatch(getAllProjectsByPage({ page: nextPage, limit }));
         navigate(`/projects/page/${nextPage}`);
     };
 
 
-    const handlePrevPage = () => {
+    const handlePrevPage = async () => {
         const prevPage = parseInt(page) - 1;
-        dispatch(getAllProjectsByPage({ page: prevPage, limit }));
+        await dispatch(getAllProjectsByPage({ page: prevPage, limit }));
         navigate(`/projects/page/${prevPage}`);
     }
     useEffect(() => {

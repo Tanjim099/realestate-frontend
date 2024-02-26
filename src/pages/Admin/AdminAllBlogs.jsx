@@ -18,16 +18,16 @@ function AdminAllBlogs() {
         const response = await dispatch(getBlogs({ page: parseInt(page) || 1, limit }));
     }
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         const nextPage = parseInt(page) + 1;
-        dispatch(getBlogs({ page: nextPage, limit }));
+        await dispatch(getBlogs({ page: nextPage, limit }));
         navigate(`/page/${nextPage}`);
     };
 
 
-    const handlePrevPage = () => {
+    const handlePrevPage = async () => {
         const prevPage = parseInt(page) - 1;
-        dispatch(getUsers({ page: prevPage, limit }));
+        await dispatch(getUsers({ page: prevPage, limit }));
         navigate(`/page/${prevPage}`);
     }
 

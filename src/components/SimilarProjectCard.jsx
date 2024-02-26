@@ -1,6 +1,4 @@
 import { NavLink } from "react-router-dom";
-// import "../styles/Project.css";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 function SimilarProjectCard({ data }) {
     return (
         <NavLink to={`/project/${data.slug}`}>

@@ -22,7 +22,7 @@ export const createBlog = createAsyncThunk("/blog/create", async (data) => {
         return (await res)?.data;
 
     } catch (Error) {
-        console.log(Error);
+        toast.error(Error)
     }
 });
 

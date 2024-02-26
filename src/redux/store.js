@@ -23,7 +23,6 @@ export const createContact = createAsyncThunk('/contact/create', async (data) =>
 
     } catch (Error) {
         toast.error(Error.message)
-        console.log(Error);
     }
 })
 

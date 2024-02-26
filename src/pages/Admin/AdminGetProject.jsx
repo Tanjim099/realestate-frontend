@@ -14,17 +14,17 @@ function AdminGetAllProject() {
     const navigate = useNavigate();
     const { projects } = useSelector((state) => state.project);
 
-    const handelEdit = (id) => {
-        dispatch(setEditProject(true));
+    const handelEdit = async (id) => {
+        await dispatch(setEditProject(true));
         navigate(`/admin/dashboard/update-project/${id}`);
     }
 
     async function onLoadGetData() {
-        const response = await dispatch(getAllProjects());
+        await dispatch(getAllProjects());
     }
 
     async function onDeleteProject(id) {
-        const response = await dispatch(deleteProject(id))
+        await dispatch(deleteProject(id))
     }
     useEffect(() => {
         onLoadGetData()

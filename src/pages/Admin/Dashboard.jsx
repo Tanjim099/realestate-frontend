@@ -19,7 +19,6 @@ function Dashboard() {
     });
 
     const { totalUsers } = useSelector((state) => state?.stat);
-    console.log(totalUsers)
     useEffect(() => {
         const userData = {
             labels: ["User Registrations", "Project Posts", "Blog Posts"],

@@ -24,7 +24,7 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
         return (await res).data;
 
     } catch (Error) {
-        console.log(Error);
+        toast.error(Error)
     }
 });
 

@@ -9,6 +9,7 @@ import Spinner from '../components/Spinner';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import itemsImage from '../assets/items1.jpg';
 import { isEmail, isPassword } from '../helper/regexMatcher';
+import toast from 'react-hot-toast';
 
 function Register() {
     const [loading, setLoading] = useState(false);
@@ -55,8 +56,6 @@ function Register() {
             });
         }
     };
-
-    console.log(userInput);
     const onFormSubmit = async (e) => {
         try {
             e.preventDefault();
@@ -72,13 +71,12 @@ function Register() {
             }
 
             setLoading(true);
-            console.log(userInput.email);
             await dispatch(sendOTP(userInput.email));
-            dispatch(setUserData(userInput));
+            await dispatch(setUserData(userInput));
             setLoading(false);
             navigate('/verify-email');
         } catch (Error) {
-            console.log(Error);
+            toast.error(Error)
         }
     }
 

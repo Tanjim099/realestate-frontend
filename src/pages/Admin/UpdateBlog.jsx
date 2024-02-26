@@ -6,10 +6,10 @@ import Spinner from '../../components/Spinner';
 import AdminLayout from '../../components/AdminLayout';
 import JoditEditor from 'jodit-react';
 import { useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function UpdateBlog() {
     const { state } = useLocation();
-    console.log(state);
     const [loading, setLoading] = useState(false);
     const { data } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
@@ -88,10 +88,9 @@ function UpdateBlog() {
             setLoading(false);
 
         } catch (Error) {
-            console.log(Error);
+            toast.error(Error)
         }
     }
-    console.log(state)
     const editorConfig = {
         // JoditEditor customization options
         readonly: false,   // Set to true if you want to make the editor read-only

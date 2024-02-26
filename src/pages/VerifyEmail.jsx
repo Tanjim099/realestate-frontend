@@ -48,6 +48,10 @@ function VerifyEmail() {
         }
     }
 
+    async function handleOtpSend(signData) {
+        await dispatch(sendOTP(signData))
+    }
+
     return (
         <HomeLayout>
             <div className='flex items-center  justify-center min-h-screen'>
@@ -66,7 +70,7 @@ function VerifyEmail() {
                                 }} className="w-[60px] border-0 m-1 mb-3 bg-gray-100 mt-10 rounded-[0.5rem] text-black aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50" />}
                             />
                             <div className='flex justify-between'>
-                                <button className='mt-5' onClick={() => dispatch(sendOTP(signData.email))}>Resend Otp</button>
+                                <button className='mt-5' onClick={() => handleOtpSend(signData.email)}>Resend Otp</button>
                                 <button
                                     type='submit'
                                     className='bg-primary text-xl w-[140px] inline-block text-white rounded h-[40px] mt-3 hover:bg-[#7f1639] hover:scale-110 duration-300 ease-in-out transition-all'

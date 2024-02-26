@@ -27,10 +27,7 @@ function ProjectViewPage() {
     const similarProjectData = similarProject.filter((data) => {
         return data.checkStatus == "yes";
     })
-    // const { _id } = useSelector((state) => state?.auth?.data);
     const getUserData = JSON.parse(localStorage.getItem("data"));
-    // console.log(getUserData._id);
-    // console.log(_id);
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
     const [nextEl, setNextEl] = useState(null);
@@ -93,7 +90,7 @@ function ProjectViewPage() {
     async function onReviewFormSubmit(e) {
         e.preventDefault();
         try {
-            const res = dispatch(createRatingReview([ratingReview, getUserData?._id]));
+            const res = await dispatch(createRatingReview([ratingReview, getUserData?._id]));
             setRatingReview((prev) => ({
                 ...prev,
                 rating: '',

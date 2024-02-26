@@ -13,10 +13,10 @@ function HeroSection() {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState();
     const { query, results, suggestions, status, error } = useSelector((state) => state?.project);
-    const handleInputChange = (e) => {
+    const handleInputChange = async (e) => {
         const inputValue = e.target.value;
         setSearchQuery(inputValue)
-        dispatch(setQuery(searchQuery));
+        await dispatch(setQuery(searchQuery));
     };
 
     const handleSearch = async () => {
@@ -27,17 +27,19 @@ function HeroSection() {
             setSearchQuery(emptyStr);
         }
     };
-
+    async function fetchSuggestions() {
+        await dispatch(getSuggestions(query));
+    }
     useEffect(() => {
         if (query) {
-            dispatch(getSuggestions(query));
+            fetchSuggestions()
         }
 
     }, [query, dispatch]);
 
-    const handleSuggestionClick = (suggestion) => {
-        dispatch(setQuery(suggestion));
-        dispatch(searchProject(suggestion));
+    const handleSuggestionClick = async (suggestion) => {
+        await dispatch(setQuery(suggestion));
+        await dispatch(searchProject(suggestion));
     }
 
     return (

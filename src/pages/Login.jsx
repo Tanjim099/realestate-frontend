@@ -34,7 +34,6 @@ function Login() {
             if (!userInput.email || !userInput.password) {
                 toast.error('All field are mandatory...');
             }
-            console.log(isEmail(userInput.email));
             if (!isEmail(userInput.email)) {
                 toast.error('Invalid Email');
                 return;

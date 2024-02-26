@@ -11,7 +11,7 @@ function City() {
     const { cityname } = useParams();
     const { projects } = useSelector((state) => state.project);
     async function onLoadGetData() {
-        const response = await dispatch(getAllProjects());
+        await dispatch(getAllProjects());
     }
     const filterProject = projects?.filter((project) => {
         return cityname === project?.city?.toLowerCase();

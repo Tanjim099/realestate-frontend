@@ -12,29 +12,31 @@ function Lead() {
     const { page } = useParams();
     const [limit, setLimit] = useState(9);
     const { leads, checkedItems } = useSelector((state) => state?.stat);
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         const nextPage = parseInt(page) + 1;
-        dispatch(getAllContact({ page: nextPage, limit }));
+        await dispatch(getAllContact({ page: nextPage, limit }));
         navigate(`/admin/dashboard/leads/page/${nextPage}`);
     };
 
-    const handlePrevPage = () => {
+    const handlePrevPage = async () => {
         const prevPage = parseInt(page) - 1;
-        dispatch(getAllContact({ page: prevPage, limit }));
+        await dispatch(getAllContact({ page: prevPage, limit }));
         navigate(`/admin/dashboard/leads/page/${prevPage}`);
     }
 
-    const handleCheckboxChange = (leadId) => {
-        dispatch(updateCheckedItems({ leadId }));
+    const handleCheckboxChange = async (leadId) => {
+        await dispatch(updateCheckedItems({ leadId }));
     };
 
     async function fetchData() {
-        const response = await dispatch(getAllContact({ page: parseInt(page) || 1, limit }));
+        await dispatch(getAllContact({ page: parseInt(page) || 1, limit }));
     }
 
     useEffect(() => {
         fetchData();
     }, [page]);
+
+
 
     useEffect(() => {
         dispatch(updateCheckedItems({}));

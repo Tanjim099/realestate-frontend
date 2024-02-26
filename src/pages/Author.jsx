@@ -18,11 +18,11 @@ function Author() {
     const { userData } = useSelector((state) => state?.auth);
     const { userBlog } = useSelector((state) => state?.blog);
     async function getUserData() {
-        const response = await dispatch(getUserProfile(id));
+        await dispatch(getUserProfile(id));
     }
 
     async function fetchUserBlog() {
-        const response = await dispatch(getBlogsByUserId(id))
+        await dispatch(getBlogsByUserId(id))
     }
     useEffect(() => {
         getUserData();

@@ -15,19 +15,19 @@ function AllUsers() {
     const { users } = useSelector((state) => state?.stat);
     const projects = [];
     async function fetchData() {
-        const response = await dispatch(getUsers({ page: parseInt(page) || 1, limit }));
+        await dispatch(getUsers({ page: parseInt(page) || 1, limit }));
     }
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         const nextPage = parseInt(page) + 1;
-        dispatch(getUsers({ page: nextPage, limit }));
+        await dispatch(getUsers({ page: nextPage, limit }));
         navigate(`/admin/dashboard/users/page/${nextPage}`);
     };
 
 
-    const handlePrevPage = () => {
+    const handlePrevPage = async () => {
         const prevPage = parseInt(page) - 1;
-        dispatch(getUsers({ page: prevPage, limit }));
+        await dispatch(getUsers({ page: prevPage, limit }));
         navigate(`/admin/dashboard/users/page/${prevPage}`);
     }
 

@@ -5,6 +5,7 @@ import { createBlog } from '../../redux/slices/blogSlice';
 import Spinner from '../../components/Spinner';
 import AdminLayout from '../../components/AdminLayout';
 import JoditEditor from 'jodit-react';
+import toast from 'react-hot-toast';
 
 function CreateBlog() {
   const [loading, setLoading] = useState(false);
@@ -91,7 +92,7 @@ function CreateBlog() {
       setLoading(false);
 
     } catch (Error) {
-      console.log(Error);
+      toast.error(Error)
     }
   }
 

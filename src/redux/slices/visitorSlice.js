@@ -25,10 +25,6 @@ const visitorSlice = createSlice({
     name: "visitor",
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(logVisitorAsync.fulfilled, (state, action) => {
-            console.log(action)
-        })
-    }
+    extraReducers: (builder) => { }
 });
 export default visitorSlice.reducer;
