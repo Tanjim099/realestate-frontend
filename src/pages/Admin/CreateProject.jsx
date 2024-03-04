@@ -294,7 +294,15 @@ function CreateProject() {
             e.preventDefault();
             if (editProject) {
                 setLoading(true);
-                if (!projectCreateData.name || !projectCreateData.location || !projectCreateData.developer || !projectCreateData.description || !projectCreateData.startingFrom || !projectCreateData.currency || !projectCreateData.email || !projectCreateData.phone) {
+                if (!projectCreateData.name || !projectCreateData.location || !projectCreateData.developer ||
+                    !projectCreateData.description || !projectCreateData.startingFrom
+                    || !projectCreateData.currency || !projectCreateData.email
+                    || !projectCreateData.phone || !projectCreateData.specifications ||
+                    !projectCreateData.city
+                    || !projectCreateData.content
+                    || !projectCreateData.status || !projectCreateData.map || !projectCreateData.projectArea
+                    || !projectCreateData.projectType || !projectCreateData.title
+                ) {
                     toast.error('Filed are all mandatory...');
                     return;
                 }
@@ -337,38 +345,40 @@ function CreateProject() {
                 for (let i = 0; i < amenitieImages.length; i++) {
                     formData.append('amenities', amenitieImages[i].file);
                 }
-
+                console.log(formData)
                 const res = await dispatch(updateProject([formData, project._id]));
-                setProjectCreateData({
-                    name: '',
-                    location: '',
-                    developer: '',
-                    description: '',
-                    specifications: '',
-                    startingFrom: '',
-                    currency: '',
-                    email: '',
-                    phone: '',
-                    city: '',
-                    map: '',
-                    projectArea: '',
-                    possessionOn: '',
-                    projectType: '',
-                    reraNo: '',
-                    title: "",
-                    keywords: "",
-                    content: '',
-                })
-                setGalleryImages([]);
-                setFloorImages([]);
-                setAmenitiesImages([]);
-                setFloorChips([]);
-                setAmenitieChips([]);
-                setFloorPriceChips([]);
-                setDimensionsChips([]);
+                console.log(res)
                 setLoading(false);
-                navigate('/admin/dashboard/all-projects');
-                return;
+                // setProjectCreateData({
+                //     name: '',
+                //     location: '',
+                //     developer: '',
+                //     description: '',
+                //     specifications: '',
+                //     startingFrom: '',
+                //     currency: '',
+                //     email: '',
+                //     phone: '',
+                //     city: '',
+                //     map: '',
+                //     projectArea: '',
+                //     possessionOn: '',
+                //     projectType: '',
+                //     reraNo: '',
+                //     title: "",
+                //     keywords: "",
+                //     content: '',
+                // })
+                // setGalleryImages([]);
+                // setFloorImages([]);
+                // setAmenitiesImages([]);
+                // setFloorChips([]);
+                // setAmenitieChips([]);
+                // setFloorPriceChips([]);
+                // setDimensionsChips([]);
+                // setLoading(false);
+                // navigate('/admin/dashboard/all-projects');
+                // return;
             }
 
             if (!projectCreateData.name || !projectCreateData.location || !projectCreateData.developer || !projectCreateData.description || !projectCreateData.startingFrom || !projectCreateData.currency || !projectCreateData.email || !projectCreateData.phone) {
@@ -421,35 +431,36 @@ function CreateProject() {
             }
 
             const res = await dispatch(createNewProject(formData));
-            setProjectCreateData({
-                name: '',
-                location: '',
-                developer: '',
-                description: '',
-                specifications: '',
-                startingFrom: '',
-                currency: '',
-                email: '',
-                phone: '',
-                city: '',
-                map: '',
-                projectArea: '',
-                possessionOn: '',
-                projectType: '',
-                reraNo: '',
-                title: "",
-                keywords: "",
-                content: '',
-            })
-            setGalleryImages([]);
-            setFloorImages([]);
-            setAmenitiesImages([]);
-            setFloorChips([]);
-            setAmenitieChips([]);
-            setFloorPriceChips([]);
-            setDimensionsChips([]);
-            setLoading(false);
-            navigate('/admin/dashboard/all-projects');
+            console.log(res)
+            // setProjectCreateData({
+            //     name: '',
+            //     location: '',
+            //     developer: '',
+            //     description: '',
+            //     specifications: '',
+            //     startingFrom: '',
+            //     currency: '',
+            //     email: '',
+            //     phone: '',
+            //     city: '',
+            //     map: '',
+            //     projectArea: '',
+            //     possessionOn: '',
+            //     projectType: '',
+            //     reraNo: '',
+            //     title: "",
+            //     keywords: "",
+            //     content: '',
+            // })
+            // setGalleryImages([]);
+            // setFloorImages([]);
+            // setAmenitiesImages([]);
+            // setFloorChips([]);
+            // setAmenitieChips([]);
+            // setFloorPriceChips([]);
+            // setDimensionsChips([]);
+            // setLoading(false);
+            // navigate('/admin/dashboard/all-projects');
 
         } catch (Error) {
             toast.error(Error)

@@ -9,7 +9,6 @@ function EditProject() {
     const { projectId } = useParams();
 
     const { state } = useLocation();
-    console.log(state);
 
     if (state) {
         dispatch(setEditProject(true));
